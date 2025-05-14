@@ -6,7 +6,6 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Bounty } from './bounty.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
 import { UsersService } from 'src/users/users.service';
 
 export interface UserDto {
