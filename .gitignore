@@ -1,0 +1,61 @@
+# General
+.DS_Store
+*.log
+*.pem
+*.env*
+*.tsbuildinfo
+
+# Node.js dependencies
+dist
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+/coverage
+
+# Next.js (Frontend)
+frontend/.next/
+/out/
+
+
+# Build outputs (Frontend and Backend)
+/build
+/dist
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment files
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Miscellaneous
+.idea
+.vscode
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Azure (if deploying to Azure)
+/azure-pipelines.yml
+/.azure

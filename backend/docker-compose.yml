@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bounty_board
+    ports:
+      - 5432:5432
+
+  backend:
+    build: ./
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_DATABASE: bounty_board
+      JWT_SECRET: mysecretkey
+      JWT_EXPIRES_IN: 1h
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
