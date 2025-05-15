@@ -43,10 +43,7 @@ export class BountiesService {
     reward: number;
     user: Partial<UserDto>;
   }) {
-    const currentUser = await this.bountyRepo.findOne({
-      where: { id: data.user.userId },
-      relations: ['createdBy'],
-    });
+    const currentUser = await this.userService.findById(data.user.userId!);
 
     if (!currentUser) {
       throw new BadRequestException('User not found, please log in again');
