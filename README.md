@@ -1,157 +1,84 @@
-🌌 Galactic Bounty Board
-A full-stack web application for bounty hunters in the galaxy to post, browse, and accept bounties.
+# 🌌 Galactic Bounty Board
 
-🔧 Tech Stack
-Layer	Tech
-Frontend	Next.js + React + Tailwind CSS
-Backend	Node.js + Express
-Auth	JWT
-Database	PostgreSQL (via Prisma)
-API	REST
-Styling	Tailwind CSS
-Deployment	Vercel (frontend), Railway/Fly.io (backend)
-Extras	Star Wars Fandom API (images)
+A full-stack web app for bounty hunters to post, browse, and accept bounties.
 
-📁 Project Structure
-bash
-Copy
-Edit
-/frontend         - Next.js app
-/backend          - Express API
-⚙️ Features
-🔐 Authentication
+## 🔧 Tech Stack
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Auth**: JWT
+- **Database**: PostgreSQL (via Prisma)
+- **API**: REST
+- **Deployment**: Vercel (frontend), Railway/Fly.io (backend)
+- **Extras**: Star Wars Fandom API (images)
 
-Register/Login with JWT-based auth
+[Live Demo](https://galactic-bounty-board.vercel.app/)
 
-📃 Public Bounty List
+## 🚀 Getting Started
 
-Everyone can view bounties
+### 📦 Prerequisites
+- Node.js (>= 18.x)
+- PostgreSQL (local or hosted)
+- pnpm or npm
 
-➕ Create Bounty
-
-Authenticated hunters can post bounties
-
-✅ Accept Bounty
-
-Authenticated users can accept one bounty each
-
-📂 My Bounties
-
-View bounties posted and accepted by current user
-
-🌍 Planet Filter (Bonus)
-
-🖼️ Bounty Images (Bonus)
-
-Pull from Star Wars Fandom API
-
-🔐 Admin-only route (Bonus)
-
-View all users and their accepted bounties
-
-🚀 Getting Started
-📦 Prerequisites
-Node.js (>= 18.x)
-
-PostgreSQL running locally or hosted
-
-pnpm or npm
-
-🔁 Backend Setup (/backend)
-Install dependencies
-
-bash
-Copy
-Edit
-cd backend
-npm install
-Configure Environment Variables
-
-Create a .env file:
-
-env
-Copy
-Edit
-DATABASE_URL=postgresql://user:pass@localhost:5432/bounties
-JWT_SECRET=supersecretkey
-Run database migration (if using Prisma)
-
-bash
-Copy
-Edit
-npx prisma migrate dev --name init
-Start server
-
-bash
-Copy
-Edit
-npm run dev
-Server runs on http://localhost:3000.
-
-🎨 Frontend Setup (/frontend)
-Install dependencies
-
-bash
-Copy
-Edit
-cd frontend
-npm install
-Configure environment
-
-Create .env.local:
-
-env
-Copy
-Edit
-NEXT_PUBLIC_API_URL=http://localhost:3000
-Start dev server
-
-bash
-Copy
-Edit
-npm run dev
-Frontend runs on http://localhost:3000.
-
-🐳 Docker (Optional)
-You can run the entire app via Docker Compose:
-
-bash
-Copy
-Edit
+### 🐳 Docker (Optional)
+Run the app with Docker Compose:
+```bash
 docker-compose up --build
-Ensure Docker is installed. The compose file should include services for:
+```
+Includes services for `frontend`, `backend`, and `postgres`.
 
-frontend
+### 🔁 Backend Setup
+1. Install dependencies:
+   ```bash
+   cd backend
+   npm install
+   ```
+2. Configure `.env`:
+   ```env
+   DATABASE_URL=postgresql://user:pass@localhost:5432/bounties
+   JWT_SECRET=supersecretkey
+   ```
+3. Run database migration:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+4. Start the server:
+   ```bash
+   npm run dev
+   ```
+   Backend runs on `http://localhost:3000`.
 
-backend
+### 🎨 Frontend Setup
+1. Install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. Configure `.env.local`:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:3000
+   ```
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+   Frontend runs on `http://localhost:3000`.
 
-postgres
+## 📚 API Reference
 
-📸 Example Screens
-Public bounty list
+### Auth
+- `POST /auth/register`: Register
+- `POST /auth/login`: Login
 
-Auth forms (login/register)
+### Bounties
+- `GET /bounties`: Public list
+- `POST /bounties`: Create (auth)
+- `POST /bounties/:id/accept`: Accept (auth)
+- `GET /bounties/me`: Posted/accepted (auth)
 
-Bounty creation
+### Admin
+- https://galactic-bounty-board.vercel.app/admin/users : Admin-only
 
-My Bounties dashboard
-
-Admin user view (if admin token used) - /admin/users
-
-📚 API Reference
-Auth
-POST /auth/register
-
-POST /auth/login
-
-Bounties
-GET /bounties – public list
-
-POST /bounties – create (auth)
-
-POST /bounties/:id/accept – accept (auth)
-
-GET /bounties/me – posted/accepted (auth)
-
-Admin
-GET /admin/users – admin-only
+Admin credentials:  
+- **Email**: admin  
+- **Password**: admin1234
