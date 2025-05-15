@@ -2,15 +2,6 @@
 
 A full-stack web app for bounty hunters to post, browse, and accept bounties.
 
-## 🔧 Tech Stack
-- **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: Node.js, Express
-- **Auth**: JWT
-- **Database**: PostgreSQL (via Prisma)
-- **API**: REST
-- **Deployment**: Vercel (frontend), Railway/Fly.io (backend)
-- **Extras**: Star Wars Fandom API (images)
-
 [Live Demo](https://galactic-bounty-board.vercel.app/)
 
 ## 🚀 Getting Started
@@ -35,9 +26,17 @@ Includes services for `frontend`, `backend`, and `postgres`.
    ```
 2. Configure `.env`:
    ```env
-   DATABASE_URL=postgresql://user:pass@localhost:5432/bounties
-   JWT_SECRET=supersecretkey
+    DB_TYPE=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USERNAME=postgres
+    DB_PASSWORD=xxxx
+    DB_DATABASE=galactic_bounty
+
+    JWT_SECRET=supersecretkey
+    JWT_EXPIRES_IN=3600s
    ```
+
 3. Start the server:
    ```bash
    npm run dev
@@ -58,7 +57,7 @@ Includes services for `frontend`, `backend`, and `postgres`.
    ```bash
    npm run dev
    ```
-   Frontend runs on `http://localhost:3000`.
+   Frontend runs on `http://localhost:3001`.
 
 ## 📚 API Reference
 
